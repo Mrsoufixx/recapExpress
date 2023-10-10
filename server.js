@@ -1,41 +1,24 @@
 const express = require("express");
-const { run } = require("./db"); // Adjust the path accordingly
 const port = process.env.PORT || 3000;
+const route =  require("./routes/route")
 
 const app = express();
-run()
+app.use(route)
 app.use(express.json());
 
+// app.get("/getPhone", async (req, res) => {
+//   try {
+//     const db = await run();
+//     const phones = db.collection('phones');
 
-
-
-
-
-
-app.get("/getMovie", async (req, res) => {
-  try {
-    const db = await run();
-    const peoples = db.collection('people');
-    const query = { name: 'Frank' };
-    const people = await peoples.find().toArray();
-    console.log("Query selected:", people);
-    res.json(people);
-  } catch (error) {
-    console.error("Error retrieving movie:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
+//     const phone = await phones.find().toArray();
+//     console.log("Query selected:", phone);
+//     res.status(200).send(phone);
+//   } catch (error) {
+//     console.error("Error retrieving phone:", error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);

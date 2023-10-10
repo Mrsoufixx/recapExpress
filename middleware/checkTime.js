@@ -3,7 +3,7 @@ const checkTimeMiddleware = (req, res, next) => {
       console.log(now);
       const hours = now.getHours();
     
-      if (hours >= 11 && hours < 16) {
+      if (hours >= 11 && hours < 18) {
         // Allow access to the server
         next();
       } else {

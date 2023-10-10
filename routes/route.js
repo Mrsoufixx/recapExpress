@@ -2,11 +2,16 @@ const express=require("express")
 const route= express.Router()
 const products= require("../model/products")
 const checkTimeMiddleware= require("../middleware/checkTime")
+const {run}=require('../db')
 
 route.use(checkTimeMiddleware)
 
-route.get("/", (req,res)=>{
-      res.send(products)
+route.get("/", async (req,res)=>{
+      const db= await run()
+
+      const phones = await db.collection("phones").find().toArray()
+      console.log(phones);
+      res.send(phones)
 })
 
 
@@ -45,13 +50,21 @@ route.put("/:id",(req,res)=>{
       res.json(updateProduct)
 })
 
-route.delete("/",(req,res)=>{
-      const {id}=req.body
-      const index = products.findIndex((product)=>product.id===id)
+route.delete("/",async (req,res)=>{
 
-      if(index !== -1){
-            products.splice(index,1)
-            res.status(201).send("product deleted")
+
+      const db= await run()
+
+      const phones = await db.collection("phones").deleteMany()
+      console.log(phones);
+      res.send(phones)
+
+      // const {id}=req.body
+      // const index = products.findIndex((product)=>product.id===id)
+
+      // if(index !== -1){
+      //       products.splice(index,1)
+      //       res.status(201).send("product deleted")
       }
 
 
@@ -86,5 +99,5 @@ route.delete("/",(req,res)=>{
       // // Update the file with the modified products array
     
       // res.send("Product deleted successfully.");
-})
+)
 module.exports = route
