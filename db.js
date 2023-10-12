@@ -1,3 +1,30 @@
+
+// const mongoose = require("mongoose")
+// require('dotenv').config();
+
+// async function run(){
+//   try{
+//     await mongoose.connect(`${process.env.URI}`)
+//     console.log("db connected sucessfully");
+
+//   }catch(err){
+//     console.error(`db error : ${err.message}`)
+//   }
+// }
+// run()
+
+
+
+
+
+
+
+
+
+
+
+
+
 const { MongoClient } = require("mongodb");
 const products = require("./model/products")
 

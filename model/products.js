@@ -1,3 +1,15 @@
+// const {Schema,model} = require("mongoose");
+
+// const productSchema = new Schema({
+//   model: String,
+//   price: Number,
+//   quantity: Number,
+//   properties: [String],
+//   dateOfCreation: Date, 
+// },{collection: 'phones'});
+
+// module.exports= model('Product',productSchema)
+
 const products = [
       {
         model: "iPhone 12",
@@ -21,6 +33,5 @@ const products = [
         dateOfCreation: new Date("2022-03-20") // Replace with the actual date
       }
     ];
-    
 
 module.exports= products

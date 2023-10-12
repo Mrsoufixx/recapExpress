@@ -13,6 +13,13 @@ route.get("/", async (req,res)=>{
       console.log(phones);
       res.send(phones)
 })
+route.get("/propSearch", async (req,res)=>{
+      const db= await run()
+      const query= {properties:"OLED display"}
+      const phones = await db.collection("phones").find(query).toArray()
+      console.log(phones);
+      res.send(phones)
+})
 route.get("/one", async (req,res)=>{
       const db= await run()
       const query = {model:{$regex :/iphone/i}}
@@ -20,6 +27,35 @@ route.get("/one", async (req,res)=>{
       console.log(phones);
       res.send(phones)
 })
+route.get("/cat", async (req,res)=>{
+      const db= await run()
+      const query = {model:{$regex :/iphone/i},price:{$lte:3000},properties:"5G support"}
+      const phones = await db.collection("phones").count(query)
+      console.log(phones);
+      // res.sendStatus(201).send(phones)
+})
+route.get("/filter", async (req,res)=>{
+      const {minPrice, maxPrice, name}=req.body;
+      let query={}
+      if(minPrice && maxPrice){
+            query.price={$lte:parseFloat(maxPrice),
+            $gte:parseFloat(minPrice)}
+      }else if(minPrice){
+            query.price={$gte:parseFloat(minPrice)}
+
+      }else if(maxPrice){
+            query.price={$lte:parseFloat(maxPrice)}
+      }else{
+            query.name={$regex :new RegExp(name,'i')}      }
+
+      const db= await run()
+      // const query = {model:{$regex :/iphone/i},price:{$lte:3000},properties:"5G support"}
+
+      const phones = await db.collection("phones").find(query).toArray()
+      console.log(phones);
+      res.send(phones)
+})
+
 route.get("/less", async (req,res)=>{
       const db= await run()
       
@@ -45,23 +81,25 @@ route.post("/", async (req,res)=>{
       const productAdded = await db.collection("phones").insertOne(newProduct)
       // console.log(newProduct);
       res.send(productAdded)
-
-
-
-
-
-      // if (!name || !price) {
-      //       return res.status(400).send("Invalid request body. 'name' and 'price' are required.");
-      //     }
-
-      // const newProduct={
-      //       id:products.length+1,
-      //       name,
-      //       price
-      // }
-
-      // products.push(newProduct)
       res.status(201).json(productsAdded); 
+})
+route.post("/diff", async (req,res)=>{
+      const db = await run()
+      // const productsAdded = await db.collection("phones").insertMany(products) //all data 
+
+      const {model, price, quantity,properties, categorie} = req.body
+
+      const newProduct = {
+            model,
+            price,
+            quantity,
+            properties,
+            categorie
+      }
+      const productAdded = await db.collection("phones").insertOne(newProduct)
+      // console.log(newProduct);
+      res.send(productAdded)
+      // res.status(201).json(productsAdded); 
 })
 
 route.put("/:id",(req,res)=>{
