@@ -1,0 +1,27 @@
+.product-list-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; /* Add your desired background color */
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    
+    .product-item {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      background-color: #fff;
+      max-width: 300px;
+    }
+    
+    img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+    
