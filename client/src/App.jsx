@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./pages/home/Home";
 
-
-
 function App() {
-  const[product,setProduct]=useState("")
+  const[product,setProduct]=useState([])
   console.log(product)
  const fetchedData = async () => {
   await fetch("/products.json")
