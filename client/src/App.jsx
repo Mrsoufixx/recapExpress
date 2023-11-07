@@ -1,24 +1,21 @@
-import { useEffect, useState } from "react";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+
 import Home from "./pages/home/Home";
+import List from "./pages/list/List";
+import Form from "./pages/contact/Form";
+import Layout from "./layouts/Layout";
 
 function App() {
-  const[product,setProduct]=useState([])
-  console.log(product)
- const fetchedData = async () => {
-  await fetch("/products.json")
-  .then((response)=>response.json())
-  .then((data)=>setProduct(data))
-  .catch((e)=>console.log(e.message))
- }
-  useEffect(()=>{
-  fetchedData();
-  },[])
-  
-  
   return (
     <>
-      <Home data={product}/>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<List />} />
+          <Route path="/contact" element={<Form />} />
+        </Routes>
+      </Layout>
     </>
   );
 }

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import List from "../../components/productList/List";
-import Form from "../../components/form/Form";
+import { Link } from "react-router-dom";
+import Header from "../../layouts/Header";
 
 
-function Home({data}) {
+
+
+function Home() {
 
       const [count,setCount] = useState(0);
-      console.log("data",data);
+      
       function handlScore(action){
             switch(action){
                   case "increment" :
@@ -29,7 +31,7 @@ function Home({data}) {
       <button onClick={()=>handlScore("decrement")}>-</button>
       <button onClick={()=>handlScore("reset")}>reset</button>
       <h1>{count}</h1>
-      <List data={data}/>
+    <Link to="/product" >to product </Link>
 
     </>
   );

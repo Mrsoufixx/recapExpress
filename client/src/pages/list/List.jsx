@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./list.css"; // Import the CSS file
 
 function List({data}) {
-  const products = data
-  console.log("list",data)
+  const[products,setProduct]=useState([])
+  
+ const fetchedData = async () => {
+  await fetch("/products.json")
+  .then((response)=>response.json())
+  .then((data)=>setProduct(data))
+  .catch((e)=>console.log(e.message))
+ }
+  useEffect(()=>{
+  fetchedData();
+  },[])
   return (
     <div className="product-list-container">
       <ul>
