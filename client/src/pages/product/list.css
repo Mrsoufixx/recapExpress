@@ -1,0 +1,37 @@
+/* ProductList.css */
+.product-list-container {
+  text-align: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  background: #f9f9f9;
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-cart, .add-to-wishlist {
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.add-to-wishlist {
+  background-color: #e74c3c;
+}

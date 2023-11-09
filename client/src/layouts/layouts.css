@@ -1,0 +1,130 @@
+/* Header.css */
+
+/* Header container styles */
+.header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    /* Logo styles */
+    .logo img {
+      width: 50px; /* Adjust the size as needed */
+      height: 50px; /* Adjust the size as needed */
+    }
+    
+    /* Heading styles */
+    h1 {
+      font-size: 24px;
+      margin-left: 10px;
+    }
+    
+    /* Navigation styles */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+    }
+    
+    nav li {
+      margin-right: 20px;
+    }
+    
+    /* Search input styles */
+    .search-input {
+      display: flex;
+      align-items: center;
+    }
+    
+    .search-input input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+    
+    .search-input button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Footer.css */
+
+/* Footer container styles */
+.footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+    }
+    
+    /* Newsletter section styles */
+    .newsletter {
+      flex: 1;
+      padding-right: 20px;
+    }
+    
+    .newsletter h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .newsletter-form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    
+    .newsletter-form button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* Footer content styles */
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex: 2;
+    }
+    
+    .footer-column {
+      flex: 1;
+      margin-right: 20px;
+    }
+    
+    .footer-column h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+    
+    /* General footer styles */
+    footer {
+      background-color: #f5f5f5;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      margin-top: 20px;
+    }
+    

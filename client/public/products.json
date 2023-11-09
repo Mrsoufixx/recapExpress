@@ -3,7 +3,7 @@
       { "name": "Laptop", "price": 1000 },
       { "name": "Headphones", "price": 50 },
       { "name": "Television", "price": 700 },
-      { "name": "Microwave Oven", "price": 150 },
       { "name": "Microwave Oven", "price": 150 }
-    ]
+      
+]
     
