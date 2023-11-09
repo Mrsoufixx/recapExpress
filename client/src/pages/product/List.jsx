@@ -4,7 +4,7 @@ import Products from "./Products";
 
 function List() {
   
-  const { data } = useFetch([])
+  const { data } = useFetch("/products.json",[])
   console.log(data)
   
   return (

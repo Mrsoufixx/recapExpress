@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 
-function useFetch(initialState) {
+function useFetch(url, initialState) {
   const [data, setData] = useState(initialState);
   
+
   useEffect(() => {
-      const fetchData= async(url)=>{
-            await fetch(url)
-              .then((res) => res.json())
-              .then((d) => setData(d))
-              .catch((e) => console.log(e.message));
-      }
-      fetchData("https://jsonplaceholder.typicode.com/todos")
+    const fetchData = () => {
+      fetch(url)
+        .then((response) => response.json())
+        .then((d) => setData(d))
+        .catch((e) => console.log(e.message));
+    };
+
+    fetchData();
   }, [setData]);
-  console.log("fct Usefetch",data)
-  return data;
+
+  return { data };
 }
 
 export default useFetch;
