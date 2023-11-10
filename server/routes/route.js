@@ -1,15 +1,13 @@
 const express=require("express")
 const route= express.Router()
 const Product = require("../model/products")
-const checkTimeMiddleware= require("../middleware/checkTime")
-const {run}=require('../db')
+// const checkTimeMiddleware= require("../middleware/checkTime")
 
-route.use(checkTimeMiddleware)
+
+// route.use(checkTimeMiddleware)
 
 route.get("/", async (req,res)=>{
-      const db= await run()
-
-      const phones = await db.collection("phones").find().toArray()
+      const phones = await Product.find()
       console.log(phones);
       res.send(phones)
 })
@@ -110,15 +108,6 @@ route.put("/",async(req,res)=>{
       }catch(e){
             console.log(e.message)
       }
-      
-
-      
-      
-      // }
-
-
-
-      
 })
 
 route.delete("/",async (req,res)=>{

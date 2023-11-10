@@ -6,6 +6,6 @@ const productSchema = new Schema({
   quantity: Number,
   properties: [String],
   dateOfCreation: {type: Date , default: new Date()},
-});
+},{collection:"phones"});
 
 module.exports = model("Product",productSchema)

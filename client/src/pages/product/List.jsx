@@ -4,7 +4,7 @@ import Products from "./Products";
 
 function List() {
   
-  const { data } = useFetch("/products.json",[])
+  const { data } = useFetch("http://localhost:3000/api/products",[])
   console.log(data)
   
   return (

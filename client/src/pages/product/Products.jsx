@@ -7,8 +7,10 @@ function Products({data}) {
       <>
       {data.map((product,index) => (
             <li key={index} className="product-item">
-              <h2>{product.name}</h2>
+              <h2>{product.model}</h2>
               <p>Price: ${product.price}</p>
+              <p>category: {product.categorie}</p>
+              <p>quantity: {product.quantity}</p>
               
               {/* Buttons for adding to cart and wishlist */}
               <div className="product-buttons">
